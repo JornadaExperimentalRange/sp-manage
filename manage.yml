@@ -1,7 +1,5 @@
 version: '3.3'
-
 services:
-
   app:
     image: swarmpit/swarmpit:latest # consider using tag other than latest
     environment:
@@ -37,7 +35,6 @@ services:
         - traefik.http.routers.swarmpit-https.tls=true
         - traefik.http.routers.swarmpit-https.tls.certresolver=le
         - traefik.http.services.swarmpit.loadbalancer.server.port=8080
-
   db:
     image: couchdb:2.3.0
     volumes:
@@ -89,14 +86,12 @@ services:
         reservations:
           cpus: '0.05'
           memory: 32M
-
 networks:
   net:
     driver: overlay
     attachable: true
   public:
     external: true
-
 volumes:
   db-data:
     driver: local
